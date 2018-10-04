@@ -27,7 +27,7 @@ os.system("sudo docker run -d -ti --name app1 --hostname app1 ubuntu /bin/bash")
 os.system("sudo docker exec -d app1 apt-get update")
 os.system("sudo docker exec -d app1 apt-get install -y apache2")
 os.system("sudo docker exec -d app1 rm /var/www/html/index.html")
-os.system("sudo docker exec -d app1 sudo echo 'app1' >> /var/www/html/index.html")
+os.system("sudo docker exec -d app1 sudo echo 'app1' >> sudo /var/www/html/index.html")
 os.system("sudo docker start app1")
 
 # Criando Container app2
@@ -36,7 +36,7 @@ os.system("sudo docker run -d -ti --name app2 --hostname app2 ubuntu /bin/bash")
 os.system("sudo docker exec -d app2 apt-get update")
 os.system("sudo docker exec -d app2 apt-get install -y apache2")
 os.system("sudo docker exec -d app2 rm /var/www/html/index.html")
-os.system("sudo docker exec -d app2 sudo echo 'app2' >> /var/www/html/index.html")
+os.system("sudo docker exec -d app2 sudo echo 'app2' >> sudo /var/www/html/index.html")
 os.system("sudo docker start app2")
 
 # Criando Container app3
@@ -45,15 +45,15 @@ os.system("sudo docker run -d -ti --name app3 --hostname app3 ubuntu /bin/bash")
 os.system("sudo docker exec -d app3 apt-get update")
 os.system("sudo docker exec -d app3 apt-get install -y apache2")
 os.system("sudo docker exec -d app3 rm /var/www/html/index.html")
-os.system("sudo docker exec -d app3 sudo echo 'app3' >> /var/www/html/index.html")
+os.system("sudo docker exec -d app3 sudo echo 'app3' >> sudo /var/www/html/index.html")
 os.system("sudo docker start app3")
 
 # Configurando /etc/hosts
 print("Configurando /etc/hosts...")
 # 172.17.0.0/17 Ordem de IPs de máquinas iniciadas no Docker
-os.system("sudo echo '172.17.0.2	app1.dexter.com.br' >> sudo /etc/hosts")
-os.system("sudo echo '172.17.0.3	app2.dexter.com.br' >> sudo /etc/hosts")
-os.system("sudo echo '172.17.0.4	app3.dexter.com.br' >> sudo /etc/hosts")
+os.system("echo '172.17.0.2	app1.dexter.com.br' >> /etc/hosts")
+os.system("echo '172.17.0.3	app2.dexter.com.br' >> /etc/hosts")
+os.system("echo '172.17.0.4	app3.dexter.com.br' >> /etc/hosts")
 
 
 # Configurando proxy_pass Nginx
