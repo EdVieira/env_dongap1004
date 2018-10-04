@@ -27,7 +27,7 @@ os.system("sudo docker run -d -ti --name app1 --hostname app1 ubuntu /bin/bash")
 os.system("sudo docker exec -d app1 apt-get update")
 os.system("sudo docker exec -d app1 apt-get install -y apache2")
 os.system("sudo docker exec -d app1 rm /var/www/html/index.html")
-os.system("sudo docker exec -d app1 app1 >> sudo /var/www/html/index.html")
+os.system("sudo docker exec -d app1 echo 'app1' >> sudo /var/www/html/index.html")
 os.system("sudo docker start app1")
 
 # Criando Container app2
@@ -36,7 +36,7 @@ os.system("sudo docker run -d -ti --name app2 --hostname app2 ubuntu /bin/bash")
 os.system("sudo docker exec -d app2 apt-get update")
 os.system("sudo docker exec -d app2 apt-get install -y apache2")
 os.system("sudo docker exec -d app2 rm /var/www/html/index.html")
-os.system("sudo docker exec -d app2 app2 >> sudo /var/www/html/index.html")
+os.system("sudo docker exec -d app2 echo 'app2' >> sudo /var/www/html/index.html")
 os.system("sudo docker start app2")
 
 # Criando Container app3
@@ -45,7 +45,7 @@ os.system("sudo docker run -d -ti --name app3 --hostname app3 ubuntu /bin/bash")
 os.system("sudo docker exec -d app3 apt-get update")
 os.system("sudo docker exec -d app3 apt-get install -y apache2")
 os.system("sudo docker exec -d app3 rm /var/www/html/index.html")
-os.system("sudo docker exec -d app3 app3 >> sudo /var/www/html/index.html")
+os.system("sudo docker exec -d app3 echo 'app3' >> sudo /var/www/html/index.html")
 os.system("sudo docker start app3")
 
 # Configurando /etc/hosts
