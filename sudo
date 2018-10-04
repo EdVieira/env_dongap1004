@@ -1,5 +1,0 @@
-server {listen 80;listen [::]:80; /etc/nginx/conf.d/apps.conf
-location /app1 {proxy_pass http://app1.dexter.com.br:80/;} /etc/nginx/conf.d/apps.conf
-location /app2 {proxy_pass http://app2.dexter.com.br:80/;} /etc/nginx/conf.d/apps.conf
-location /app3 {proxy_pass http://app3.dexter.com.br:80/;} /etc/nginx/conf.d/apps.conf
-} /etc/nginx/conf.d/apps.conf
