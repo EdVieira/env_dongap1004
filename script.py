@@ -114,10 +114,14 @@ os.system("sudo docker exec app3 apache2ctl restart")
 # Configurando proxy_pass Nginx
 print("Configurando proxy_pass Nginx...")
 #os.system("sudo rm /etc/nginx/conf.d/apps.conf")
-os.system("sudo echo 'server {listen 88;listen [::]:88;' > /etc/nginx/conf.d/apps.conf")
-os.system("sudo echo 'location /app1 {proxy_pass http://172.17.0.2:80/;}' >> /etc/nginx/conf.d/apps.conf")
-os.system("sudo echo 'location /app2 {proxy_pass http://172.17.0.3:80/;}' >> /etc/nginx/conf.d/apps.conf")
-os.system("sudo echo 'location /app3 {proxy_pass http://172.17.0.4:80/;}' >> /etc/nginx/conf.d/apps.conf")
+os.system("sudo echo 'server {listen 29290;listen [::]:29290;' > /etc/nginx/conf.d/apps.conf")
+os.system("sudo echo 'location / {proxy_pass http://172.17.0.2:80/;}' >> /etc/nginx/conf.d/apps.conf")
+os.system("sudo echo '}' >> /etc/nginx/conf.d/apps.conf")
+os.system("sudo echo 'server {listen 29291;listen [::]:29291;' >> /etc/nginx/conf.d/apps.conf")
+os.system("sudo echo 'location / {proxy_pass http://172.17.0.3:80/;}' >> /etc/nginx/conf.d/apps.conf")
+os.system("sudo echo '}' >> /etc/nginx/conf.d/apps.conf")
+os.system("sudo echo 'server {listen 29292;listen [::]:29292;' >> /etc/nginx/conf.d/apps.conf")
+os.system("sudo echo 'location / {proxy_pass http://172.17.0.4:80/;}' >> /etc/nginx/conf.d/apps.conf")
 os.system("sudo echo '}' >> /etc/nginx/conf.d/apps.conf")
 
 # Desativa pagina Welcome to nginx
