@@ -1,5 +1,5 @@
 #encoding: utf-8
-import os, sys
+import os
 
 print("""
 Certifique-se de estar usando o python 3+ e executar o script como root.
@@ -9,12 +9,7 @@ Assim evitará problemas de permissão durante a configuração.
 
 """)
 root = input('Está executando o script como root? Informe p(de python) para sim.')
-if root is "p":
-	# Para resolver permissows do apache2.conf
-	#os.system("sudo python3 script.py a")
-	#exit()
-	pass
-elif not root is "p":
+if not root is "p":
 	exit()
 
 print("Adicionando repositórios e atualizando...")
@@ -119,7 +114,7 @@ os.system("sudo docker exec app3 apache2ctl restart")
 # Configurando proxy_pass Nginx
 print("Configurando proxy_pass Nginx...")
 #os.system("sudo rm /etc/nginx/conf.d/apps.conf")
-os.system("sudo echo 'server {listen 80;listen [::]:80;' > /etc/nginx/conf.d/apps.conf")
+os.system("sudo echo 'server {listen 88;listen [::]:88;' > /etc/nginx/conf.d/apps.conf")
 os.system("sudo echo 'location /app1 {proxy_pass http://172.17.0.2:80/;}' >> /etc/nginx/conf.d/apps.conf")
 os.system("sudo echo 'location /app2 {proxy_pass http://172.17.0.3:80/;}' >> /etc/nginx/conf.d/apps.conf")
 os.system("sudo echo 'location /app3 {proxy_pass http://172.17.0.4:80/;}' >> /etc/nginx/conf.d/apps.conf")
